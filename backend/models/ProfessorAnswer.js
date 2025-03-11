@@ -1,14 +1,32 @@
-const mongoose = require("mongoose");
+// backend/models/ProfessorAnswer.js
+const mongoose = require('mongoose');
 
 const professorAnswerSchema = new mongoose.Schema({
-  assignmentName: { type: String, required: true },
-  course: { type: String, required: true },
-  description: { type: String, required: false },
-  similarityThreshold: { type: Number, default: 70 },
-  plagiarismThreshold: { type: Number, default: 80 },
-  fileId: { type: mongoose.Schema.Types.ObjectId, required: true }, // Reference to GridFS file
-  extractedText: { type: String, required: true },
-  uploadedAt: { type: Date, default: Date.now },
+  assignmentName: {
+    type: String,
+    required: true
+  },
+  course: {
+    type: String,
+    required: true
+  },
+  description: String,
+  similarityThreshold: {
+    type: Number,
+    default: 0.7
+  },
+  plagiarismThreshold: {
+    type: Number,
+    default: 0.8
+  },
+  extractedText: {
+    type: String,
+    required: true
+  },
+  createdAt: {
+    type: Date,
+    default: Date.now
+  }
 });
 
-module.exports = mongoose.model("ProfessorAnswer", professorAnswerSchema);
+module.exports = mongoose.model('ProfessorAnswer', professorAnswerSchema);

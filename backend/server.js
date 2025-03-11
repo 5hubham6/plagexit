@@ -1,10 +1,8 @@
-import express from "express"; //module js
+// backend/server.js
+require('dotenv').config();
+const app = require('./app');
+const port = process.env.PORT || 3001;
 
-const app = express();
-app.get("/", (req, res) => {
-  res.send("server is ready");
-});
-const port = process.env.PORT || 3000; //can change later
 app.listen(port, () => {
-  console.log(`server at http://localhost:${port}`);
+  console.log(`Server is running on port ${port}`);
 });
